@@ -1,4 +1,4 @@
-# progettoinfo
+# Bokiaz Clothing
 
 ## Project setup
 ```
