@@ -23,7 +23,7 @@
                 </v-container>
               </v-img>
               <v-card-title>
-                <div>
+                <div> 
                     <span class="headline">{{ cloth.name }}</span>
                     <div class="d-flex">
                       <!--<v-rating

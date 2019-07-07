@@ -23,16 +23,17 @@
               {{ clothData.desc }}
             </p>
             <div class="text-xs-left mt-5">
-              Valuta il prodotto:
+              Valuta il prodotto: <!-- half-increments -->
               <v-rating
                 v-model="rating"
                 color="yellow darken-3"
                 background-color="grey darken-1"
                 empty-icon="$vuetify.icons.ratingEmpty"
-                half-increments
                 hover
+                :readonly="this.rated"
               >
               </v-rating>
+              <label v-show="this.rated">{{ sentence }}</label>
             </div>
             <div class="text-xs-left mt-5">
             <a :href='clothData.link' target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="https://www.niftybuttons.com/amazon/amazon-button1.png"></a>
@@ -46,50 +47,82 @@
 
 <script>
 import * as firebase from "firebase";
-// OnRatingChange WIP -> update db, teoricamente pronto (?)
+
 export default {
   name: 'Details',
   data: function() {
     return {
-      rating: 5,
+      rating: 0,
+      start: true,
+      rated: false,
+      sentence: "We've received your rating, thanks!",
       clothData: {},
       id: 0
     };
   },
+  watch: {
+    // Whenever rating changes, this function will run
+    rating: function () {
+      if(!this.start) {
+        this.rated = true;
+        this.addRating();
+        this.start = true;
+      } else { // This avoids the first rating change (0 to Average), which in the beginning updated the DB mistakenly.
+        this.start = false;
+      }
+    }
+  },
   created() {
+    var firebaseConfig = {
+      apiKey: "AIzaSyAOBQXlfVXJNHi62tz-5IkpAUeVb9L2PJM",
+      authDomain: "bokiaz.firebaseapp.com",
+      databaseURL: "https://bokiaz.firebaseio.com",
+      projectId: "bokiaz",
+      storageBucket: "",
+      messagingSenderId: "171947064924",
+      appId: "1:171947064924:web:25d6f642b864c713"
+    };
+    // Initialize Firebase if it hasn't been initialized yet. Just in case.
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
     this.id = this.$route.params.id;
+    
     this.clothData = this.getItemData("clothes");
+
+    if(localStorage.getItem(this.id + "CRated") == "Y")
+    {
+      this.rated = true;
+      this.sentence = "You've already rated this item.";
+    }
   },
   methods: {
-      getItemData(type) {
-        var firebaseConfig = {
-          apiKey: "AIzaSyAOBQXlfVXJNHi62tz-5IkpAUeVb9L2PJM",
-          authDomain: "bokiaz.firebaseapp.com",
-          databaseURL: "https://bokiaz.firebaseio.com",
-          projectId: "bokiaz",
-          storageBucket: "",
-          messagingSenderId: "171947064924",
-          appId: "1:171947064924:web:25d6f642b864c713"
-        };
-        // Initialize Firebase if it hasn't been initialized yet. Just in case.
-        if (!firebase.apps.length) {
-          firebase.initializeApp(firebaseConfig);
-        }
-        let db = firebase.firestore();
-        let item = db.collection(type).doc(this.id);
+    getItemData(type) {
+      let db = firebase.firestore();
+      let item = db.collection(type).doc(this.id);
 
-        item
-          .get()
-          .then(doc => {
-            if (doc.exists) {
-              this.clothData = doc.data();
-            } else {
-              console.log('No such document!');
-            }
-          })
-          .catch(err => {
-            console.log('Error getting document', err);
-          });
+      item
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            this.clothData = doc.data();
+            this.getAvgStars();
+          } else {
+            console.log('No such document!');
+          }
+        })
+        .catch(err => {
+          console.log('Error getting document', err);
+        });
+    },
+    getAvgStars() {
+      let i, sum = 0;
+      for(i = 0; i < this.clothData.stars.length; i++)
+      {
+        sum = sum + this.clothData.stars[i];
+      }
+      this.rating = (sum/this.clothData.stars.length);
     },
     getBrandIcon(brand) {
       let src;
@@ -119,40 +152,43 @@ export default {
       }
       return src;
     },
-    addRating(rating) {
-      //alert(rating);
-      if (rating > 5 || rating < 0) {
+    addRating() {      
+      if (this.rating > 5 || this.rating < 1) {
         alert("Something went wrong!");
         return; //
       }
 
-      let typ = this.allClothes.exists ? "clothes" : "misc";
+      //let typ = this.clothData.exists ? "clothes" : "misc"; // WIP
 
+      let typ = "clothes";
+
+      let db = firebase.firestore();
       let dDoc = db.collection(typ).doc(this.id);
       let tmpArray = [];
-
       dDoc
         .get()
-        .then(function(doc) {
+        .then(doc => {
           if (doc.exists) {
             tmpArray = doc.data()["stars"]; // Getting the current ratings array.
 
-            tmpArray.push(rating); // Adding the new rating at the end of our array.
+            tmpArray.push(this.rating); // Adding the new rating at the end of our array.
             // I've decided to keep the array as it is, in order to show ratings in
             // chronological order.
+
+            localStorage.setItem(this.id + "CRated", "Y");
 
             return dDoc.update({
               stars: tmpArray
             });
           } else {
             // doc.data() will be undefined in this case
-            //console.log("No such document!");
+            console.log("No such document!");
           }
         })
         .catch(function(error) {
-          //console.log("Error getting document:", error);
+          console.log("Error getting document:", error);
         });
-    },
+    }
   },
 }
 
