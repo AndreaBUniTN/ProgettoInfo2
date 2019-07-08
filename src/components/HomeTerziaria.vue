@@ -21,8 +21,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Tommy Hilfiger</h3>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris felis, varius rutrum massa a, dignissim ornare dui. Cras eget velit eu dui tristique lobortis sit amet vel tellus.
-                            </div>
+                            <div>TOMMY HILFIGER is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of the classic American classic and very cool style.</div>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -44,8 +43,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Nike</h3>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris felis, varius rutrum massa a, dignissim ornare dui. Cras eget velit eu dui tristique lobortis sit amet vel tellus.
-                            </div>
+                            <div>Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably.</div>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -67,8 +65,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Adidas</h3>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris felis, varius rutrum massa a, dignissim ornare dui. Cras eget velit eu dui tristique lobortis sit amet vel tellus.
-                            </div>
+                            <div>The adidas brand has a long history and deep-rooted connection with sport. Everything we do is rooted in sport. This is what ‘The Badge of Sport’ stands for as a brand mark.</div>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -90,8 +87,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Calvin Klein</h3>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mauris felis, varius rutrum massa a, dignissim ornare dui. Cras eget velit eu dui tristique lobortis sit amet vel tellus.
-                            </div>
+                            <div>Calvin Klein, Inc. è uno dei più importanti studi di design e marketing di moda nel mondo. Crea e immette sul mercato collezioni di abbigliamento di design per uomo e donna.</div>
                         </div>
                     </v-card-title>
                 </v-card>
