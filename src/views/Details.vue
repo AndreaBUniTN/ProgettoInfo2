@@ -1,53 +1,43 @@
 <template>
-
-<!-- Soon to be updated. -->
-
-    <v-container grid-list-lg>
-    <div style="height:64px"></div>
-    <v-layout row  align-right justify-center> 
-      <v-flex row xs12 sm6 md4>
-        <v-img
-          :src='clothData.imglink'
-          max-height="654px"
-          max-width="512px"
-        />
-      </v-flex>
-
-      <v-flex row-wrap
-        xs12
-        md4
-        align-content-space-between
-        layout
-      >
-        <v-layout align-left justify-center>
-          <v-flex xs10 md6>
-            <h1>{{ clothData.brand }}</h1>
-            <div>{{ clothData.name }}</div>
-            <p id="desc">
-              {{ clothData.desc }}
-            </p>
-            <div class="text-xs-left mt-5">
-              Rate this product:
-              <v-rating
-                v-model="rating"
-                color="yellow darken-3"
-                background-color="grey darken-1"
-                empty-icon="$vuetify.icons.ratingEmpty"
-                hover
-                :readonly="this.rated"
-                half-increments
-              >
-              </v-rating>
-              <label v-show="this.rated">{{ sentence }}</label>
+    <span>
+    <v-container class = "containerProdotto" grid-list-lg>
+        <div style="height:64px"></div>
+        <div class="left-column">
+            <v-img class="left-column img" :src='clothData.imglink'/>
+        </div>
+        <div class="right-column">
+            <div class="product-description">
+              <span>{{ clothData.category }}</span>
+              <h1>{{ clothData.name }}</h1>
+              <p>{{ clothData.desc }}</p>
             </div>
-            <div class="text-xs-left mt-5">
-            <a :href='clothData.link' target="_blank" rel="noopener noreferrer" style="border:none;text-decoration:none"><img src="https://www.niftybuttons.com/amazon/amazon-button1.png"></a>
+            <div class="product-configuration">
+                <div class="product-color">
+                    <span>Valuta questo prodotto:</span>
+                    <v-rating
+                        v-model="rating"
+                        color="yellow darken-3"
+                        background-color="grey darken-1"
+                        empty-icon="$vuetify.icons.ratingEmpty"
+                        hover
+                        :readonly="this.rated"
+                        half-increments
+                      >
+                    </v-rating>
+                    <label v-show="this.rated">{{ sentence }}</label>
+                  </div>
+                </div>
+
+                <div class="product-price">
+                  <span>{{ clothData.price }}€</span>
+                  <a href="#" class="cart-btn" color="#222226">ACQUISTA ORA</a>
+                </div>
             </div>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
     </v-container>
+    <div class="text-xs-center">
+      <v-btn round color="#222226" class="endBtn"  @click="$router.go(-1)" dark>Indietro</v-btn>
+    </div>
+    </span>
 </template>
 
 <script>
@@ -60,7 +50,7 @@ export default {
       rating: 0,
       start: true,
       rated: false,
-      sentence: "We've received your rating, thanks!",
+      sentence: "Grazie per la tua valutazione!",
       clothData: {},
       id: 0
     };
@@ -100,7 +90,7 @@ export default {
     if(own!==null)
     {
       this.rated = true;
-      this.sentence = "You've already rated this item, with a rating of " + own + " stars.";
+      this.sentence = "Hai già valutato questo prodotto con un voto pari a " + own + " stelle.";
     }
   },
   methods: {
@@ -201,4 +191,5 @@ export default {
 </script>
 
 <style scoped>
+   html, body{height:100%;width:100%;margin:0;font-family:'Roboto', sans-serif;}.containerProdotto{max-width:1200px;margin:auto;padding:15px;display:flex;}.left-column{width:60%;position:relative;}.right-column{width:40%;margin-top:60px;}.left-column img{width:100%;position:absolute;}.product-description{border-bottom:1px solid #E1E8EE;margin-bottom:20px;}.product-description span{font-size:12px;color:#358ED7;letter-spacing:1px;text-transform:uppercase;text-decoration:none;}.product-description h1{font-weight:300;font-size:52px;color:#43484D;letter-spacing:-2px;}.product-description p{font-size:14px;font-weight:300;color:#86939E;line-height:24px;}.product-color span,.cable-config span{font-size:14px;font-weight:400;color:#86939E;margin-bottom:20px;display:inline-block;}.product-color{margin-bottom:30px;}.color-choose div{display:inline-block;}.cable-choose{margin-bottom:20px;}.cable-choose button{border:2px solid #E1E8EE;border-radius:6px;padding:13px 20px;font-size:14px;color:#5E6977;background-color:#fff;cursor:pointer;transition:all .5s;}.cable-choose button:hover,.cable-choose button:active,.cable-choose button:focus{border:2px solid #86939E;outline:none;}.cable-config{border-bottom:1px solid #E1E8EE;margin-bottom:20px;}.cable-config a{color:#358ED7;text-decoration:none;font-size:12px;position:relative;margin:10px 0;display:inline-block;}.cable-config a:before{content:"?";height:15px;width:15px;border-radius:50%;border:2px solid rgba(53, 142, 215, 0.5);display:inline-block;text-align:center;line-height:16px;opacity:0.5;margin-right:5px;}.product-price{display:flex;align-items:center;}.product-price span{font-size:26px;font-weight:300;color:#43474D;margin-right:20px;}.cart-btn{display:inline-block;background-color:#7DC855;border-radius:6px;font-size:16px;color:#FFFFFF;text-decoration:none;padding:12px 30px;transition:all .5s;}.cart-btn:hover{background-color:#64af3d;}@media (max-width:940px){.container{flex-direction:column;margin-top:60px;} .left-column, .right-column{width:100%;} .left-column img{width:300px;right:0;top:-65px;left:initial;}}@media (max-width:535px){.left-column img{width:220px;top:-85px;}} .endBtn{position:fixed;bottom:64px;margin:0;}
 </style>
