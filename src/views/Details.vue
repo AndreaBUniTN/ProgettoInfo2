@@ -1,4 +1,7 @@
 <template>
+
+<!-- Soon to be updated. -->
+
     <v-container grid-list-lg>
     <v-layout row  align-right justify-center> 
       <v-flex row xs12 sm6 md4>
