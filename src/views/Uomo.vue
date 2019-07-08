@@ -27,14 +27,13 @@
                     <span class="headline">{{ cloth.name }}</span>
                     <div class="d-flex">
                       <!--<v-rating
-                      :value="cloth.stars"
+                      v-model="ratings[cloth.id]"
                       color="amber"
                       dense
-                      half-increments
                       readonly
                       size="12"
                       ></v-rating>-->
-                      <span class="justify-start">Reviews: {{ cloth.nrevs }}</span>
+                      <span class="justify-start">Price: </span>
                       <div class="ml-2 grey--text text--darken-2">
                         <span>€{{ cloth.price }}</span>
                       </div>
@@ -61,6 +60,7 @@ export default {
   data: function() {
     return {
       allClothes: [],
+      ratings: [],
       itemType: "clothes",
       gender: "M"
     }
@@ -90,9 +90,16 @@ export default {
         .then(snapshot => {
           snapshot.forEach(doc => {
             this.allClothes.push(doc.data()); // Messy with array positions and firebase IDs. // Solved with routing.
-            //this.getAvgStars(doc.id); //
+            /*let j, i, sum = 0;
+            for(j = 0; j < this.allClothes.length; j++) {
+              for(i = 0; i < this.allClothes[j].stars.length; i++) {
+                sum = sum + this.allClothes[j].stars[i];
+              }
+              this.ratings[j] = (sum/this.allClothes[j].stars.length);
+            }*/
+            //this.ratings[doc.data().id] = doc.data().stars[0];
+            
           })});
-
       /*dDoc // Old
         .get()
         .then(function(doc) {
@@ -137,11 +144,6 @@ export default {
         /*.catch(function(error) {
           console.log("Error getting document:", error);
         });*/
-    },
-    getAvgStars(id) {
-      //let arr = [];
-      //arr = this.allClothes[id];
-      this.allClothes[id].stars = this.allClothes[id].stars[0];
     },
     getBrandIcon(brand) {
       let src;

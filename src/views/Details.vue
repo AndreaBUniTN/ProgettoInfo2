@@ -23,7 +23,7 @@
               {{ clothData.desc }}
             </p>
             <div class="text-xs-left mt-5">
-              Valuta il prodotto: <!-- half-increments -->
+              Rate this product:
               <v-rating
                 v-model="rating"
                 color="yellow darken-3"
