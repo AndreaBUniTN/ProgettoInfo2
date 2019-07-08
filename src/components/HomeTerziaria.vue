@@ -105,6 +105,3 @@
         name: 'HomeTerziaria'
     };
 </script>
-
-<style scoped>
-</style>

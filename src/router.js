@@ -16,27 +16,27 @@ export default new Router({
     {
       path: "/uomo",
       name: "uomo",
-      component: () => import('./views/Uomo.vue')
+      component: () => import("./views/Uomo.vue")
     },
     {
       path: "/donna",
       name: "donna",
-      component: () => import('./views/Donna.vue')
+      component: () => import("./views/Donna.vue")
     },
     {
       path: "/accessori",
       name: "accessori",
-      component: () => import('./views/Accessori.vue')
+      component: () => import("./views/Accessori.vue")
     },
     {
       path: "/about",
       name: "about",
-      component: () => import('./views/About.vue')
+      component: () => import("./views/About.vue")
     },
     {
       path: "/details/:id",
       name: "details",
-      component: () => import('./views/Details.vue')
+      component: () => import("./views/Details.vue")
     }
   ]
 });

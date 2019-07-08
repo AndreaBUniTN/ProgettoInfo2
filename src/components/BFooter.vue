@@ -1,0 +1,54 @@
+<template>
+  <v-footer
+    app
+    dark
+    height="auto"
+  >
+    <v-card
+      class="flex"
+      flat
+      tile
+    >
+      <v-card-actions class="grey darken-3 justify-center">
+        &copy;2019 — <strong>Bokiaz Clothing</strong>
+      </v-card-actions>
+    </v-card>
+  </v-footer>
+</template>
+
+<script>
+export default {
+  name: "BFooter",
+  data() {
+    return {
+      appTitle: "Bokiaz clothing",
+      icons: [
+        'fab fa-facebook',
+        'fab fa-twitter',
+        'fab fa-google-plus',
+        'fab fa-linkedin',
+        'fab fa-instagram'
+      ]
+    };
+  }
+};
+</script>
+
+<style scoped>
+@font-face {
+  font-family: Black_Street;
+  src: url(Black_Street.ttf);
+}
+
+.text {
+  font-family: Black_Street;
+  font-size: 35px;
+  color:white;
+  text-decoration:none;
+}
+
+a {
+  color:white;
+  text-decoration:none;
+}
+</style>

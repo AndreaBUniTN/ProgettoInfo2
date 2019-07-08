@@ -44,7 +44,7 @@ export default {
   name: "BarraNavigazione",
   data() {
     return {
-      appTitle: "Bokiaz clothing",
+      appTitle: "Bokiaz Clothing",
       drawer: false, // Falso perchè è chiuso, quando si apre diventa vero
       items: [
         { title: "Home", to: "/" },

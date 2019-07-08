@@ -3,6 +3,7 @@
 <!-- Soon to be updated. -->
 
     <v-container grid-list-lg>
+    <div style="height:64px"></div>
     <v-layout row  align-right justify-center> 
       <v-flex row xs12 sm6 md4>
         <v-img
@@ -34,6 +35,7 @@
                 empty-icon="$vuetify.icons.ratingEmpty"
                 hover
                 :readonly="this.rated"
+                half-increments
               >
               </v-rating>
               <label v-show="this.rated">{{ sentence }}</label>
@@ -93,11 +95,12 @@ export default {
     this.id = this.$route.params.id;
     
     this.clothData = this.getItemData("clothes");
+    let own = localStorage.getItem(this.id + "CRated");
 
-    if(localStorage.getItem(this.id + "CRated") == "Y")
+    if(own!==null)
     {
       this.rated = true;
-      this.sentence = "You've already rated this item.";
+      this.sentence = "You've already rated this item, with a rating of " + own + " stars.";
     }
   },
   methods: {
@@ -156,7 +159,7 @@ export default {
       return src;
     },
     addRating() {      
-      if (this.rating > 5 || this.rating < 1) {
+      if (this.rating > 5 || this.rating < 0) {
         alert("Something went wrong!");
         return; //
       }
@@ -178,7 +181,7 @@ export default {
             // I've decided to keep the array as it is, in order to show ratings in
             // chronological order.
 
-            localStorage.setItem(this.id + "CRated", "Y");
+            localStorage.setItem(this.id + "CRated", this.rating);
 
             return dDoc.update({
               stars: tmpArray

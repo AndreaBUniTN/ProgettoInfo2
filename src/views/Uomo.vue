@@ -1,7 +1,8 @@
 <template>
   <span>
-    <v-container grid-list-lg >
-      <v-layout row wrap v-if=allClothes>
+    <div style="height:64px"></div>
+    <v-container grid-list-lg>
+      <v-layout row wrap>
         <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id"> <!-- old v-if="cloth.gender == 'M'" -->
           <v-hover>
             <v-card
@@ -49,6 +50,7 @@
         </v-flex>
       </v-layout>
     </v-container>
+    <div style="height:64px"></div>
   </span>
 </template>
 
@@ -90,14 +92,11 @@ export default {
         .then(snapshot => {
           snapshot.forEach(doc => {
             this.allClothes.push(doc.data()); // Messy with array positions and firebase IDs. // Solved with routing.
-            /*let j, i, sum = 0;
-            for(j = 0; j < this.allClothes.length; j++) {
-              for(i = 0; i < this.allClothes[j].stars.length; i++) {
-                sum = sum + this.allClothes[j].stars[i];
-              }
-              this.ratings[j] = (sum/this.allClothes[j].stars.length);
+            /*let i, sum = 0;
+            for(i = 0; i < this.allClothes[doc.data().id].stars.length; i++) {
+              sum = sum + this.allClothes[doc.data().id].stars[i];
             }*/
-            //this.ratings[doc.data().id] = doc.data().stars[0];
+            //this.ratings[doc.data().id] = (sum/this.allClothes[doc.data().id].stars.length);
             
           })});
       /*dDoc // Old

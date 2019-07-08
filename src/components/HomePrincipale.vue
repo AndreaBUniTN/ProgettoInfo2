@@ -1,5 +1,4 @@
 <template>
-<span>
   <v-container fluid fill-height class="HomePrincipale" style="max-height: 100vh;">
     <v-layout justify-center align-center column pa-5>
       <div class="display-3 font-weight-black white--text text-xs-center">
@@ -16,16 +15,13 @@
         <img style="width:64px; height:64px" src="https://www.materialui.co/materialIcons/hardware/keyboard_arrow_down_grey_192x192.png">
       </v-btn>
     </v-layout>
-  </v-container>  
-</span>
-  
+  </v-container>
 </template>
 
 <script>
 export default {
   name: "HomePrincipale"
 };
-
 
 </script>
 
