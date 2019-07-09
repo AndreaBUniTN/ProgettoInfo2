@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-lg>
+    <v-container grid-list-lg id="thirdhome">
         <v-layout row>
             <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5">Scopri i nuovi arrivi</v-flex>
         </v-layout>

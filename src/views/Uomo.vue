@@ -3,7 +3,7 @@
     <div style="height:64px"></div>
     <v-container grid-list-lg>
       <v-layout row wrap>
-        <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id"> <!-- old v-if="cloth.gender == 'M'" -->
+        <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id">
           <v-hover>
             <v-card
               slot-scope="{ hover }"
@@ -27,13 +27,6 @@
                 <div> 
                     <span class="headline">{{ cloth.name }}</span>
                     <div class="d-flex">
-                      <!--<v-rating
-                      v-model="ratings[cloth.id]"
-                      color="amber"
-                      dense
-                      readonly
-                      size="12"
-                      ></v-rating>-->
                       <span class="justify-start">Price: </span>
                       <div class="ml-2 grey--text text--darken-2">
                         <span>€{{ cloth.price }}</span>
@@ -62,7 +55,6 @@ export default {
   data: function() {
     return {
       allClothes: [],
-      ratings: [],
       itemType: "clothes",
       gender: "M"
     }
@@ -82,6 +74,7 @@ export default {
     firebase.initializeApp(firebaseConfig);
     }
     this.getItemData();
+    localStorage.setItem("itemtype", this.itemType);
   },
   methods: {
     getItemData() {
@@ -91,13 +84,7 @@ export default {
         .get()
         .then(snapshot => {
           snapshot.forEach(doc => {
-            this.allClothes.push(doc.data()); // Messy with array positions and firebase IDs. // Solved with routing.
-            /*let i, sum = 0;
-            for(i = 0; i < this.allClothes[doc.data().id].stars.length; i++) {
-              sum = sum + this.allClothes[doc.data().id].stars[i];
-            }*/
-            //this.ratings[doc.data().id] = (sum/this.allClothes[doc.data().id].stars.length);
-            
+            this.allClothes.push(doc.data());
           })});
       /*dDoc // Old
         .get()
@@ -163,22 +150,43 @@ export default {
           src = "https://cdn.freebiesupply.com/logos/large/2x/levis-7-logo-png-transparent.png";
           break;
         case "Versace":
-          //src = "https://www.gfxmag.com/wp-content/uploads/2016/08/versace-medusa-vector-logo.png"; // Too many redirects
+          src = "http://assets.stickpng.com/thumbs/58429658a6515b1e0ad75ad4.png";
           break;  
         case "Polo Ralph Lauren":
           src = "https://www.stickpng.com/assets/images/58429f58a6515b1e0ad75aec.png";
           break;
         case "Jack & Jones":
           src = "https://www.kingfishershopping.co.uk/userfiles/images/shopping/stores/jack-and-jones.png?width=216&height=216&mode=crop";
-          break;      
-
+          break;
+        case "Gucci":
+          src = "https://cdn.iconscout.com/icon/free/png-256/gucci-3-555345.png";
+          break;
+        case "G-Shock":
+          src = "https://theringmakers.co.nz/wp-content/uploads/2017/02/Casio-G-Shock-Logo.png";
+          break;
+        case "Fjallraven":
+          src = "https://i.pinimg.com/originals/83/c5/bd/83c5bd4413078920a6ed816bfc0b904e.png";
+          break;
+        case "Fizz":
+          src = "https://cdn.freebiesupply.com/logos/large/2x/star-wars-logo-png-transparent.png";
+          break;
+        case "The North Face":
+          src = "https://static.transa.ch/master/the-north-face-logo.png";
+          break;
+        case "Sekonda":
+          src = "http://watchmentruro.com/uploads/3/4/9/6/34962892/sekonda_orig.png";
+          break;
+        case "Fila":
+          src = "https://cdn.freebiesupply.com/logos/large/2x/fila-1-logo-png-transparent.png";
+          break;
+          
         default: // Bokiaz
-          src = "";
+          src = "/public/favicon.ico";
           break;
       }
       return src;
     }
-  },
+  }
 };
 
 </script>

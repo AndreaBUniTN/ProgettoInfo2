@@ -56,6 +56,7 @@ export default {
       start: true,
       rated: false,
       sentence: "Grazie per la tua valutazione!",
+      itemType: "clothes", // Default value.
       clothData: {},
       id: 0
     };
@@ -88,9 +89,10 @@ export default {
     }
 
     this.id = this.$route.params.id;
-    
-    this.clothData = this.getItemData("clothes");
-    let own = localStorage.getItem(this.id + "CRated");
+    this.itemType = localStorage.getItem("itemtype");
+
+    this.clothData = this.getItemData(this.itemType);
+    let own = localStorage.getItem(this.id + this.itemType + "Rated");
 
     if(own!==null)
     {
@@ -176,7 +178,7 @@ export default {
             // I've decided to keep the array as it is, in order to show ratings in
             // chronological order.
 
-            localStorage.setItem(this.id + "CRated", this.rating);
+            localStorage.setItem(this.id + this.itemType + "Rated", this.rating);
 
             return dDoc.update({
               stars: tmpArray

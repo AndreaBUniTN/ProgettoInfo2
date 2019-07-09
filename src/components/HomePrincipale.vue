@@ -11,7 +11,7 @@
         È finalmente arrivata la nuova collezione estiva di casa Adidas, scopri
         tutti i nuovi capi e accessori.
       </div>
-      <v-btn fab class="grey darken-4">
+      <v-btn fab class="grey darken-4" @click="scrollTo()">
         <img style="width:64px; height:64px" src="https://www.materialui.co/materialIcons/hardware/keyboard_arrow_down_grey_192x192.png">
       </v-btn>
     </v-layout>
@@ -20,7 +20,14 @@
 
 <script>
 export default {
-  name: "HomePrincipale"
+  name: "HomePrincipale",
+  methods: {
+    scrollTo () {
+      document.getElementById('thirdhome').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  }
 };
 
 </script>
