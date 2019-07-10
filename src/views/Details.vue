@@ -35,10 +35,6 @@
               </div>
         </div>
     </v-container>
-    <!--<div style="height:32vh"></div> Possible solution
-    <div class="text-xs-center">
-      <v-btn round color="#222226" class="endBtn" //93vh// style="position:relative" @click="$router.go(-1)" dark>Indietro</v-btn>
-    </div>-->
     <div class="text-xs-center">
       <v-btn round color="#222226" class="endBtn" @click="$router.go(-1)" dark>Indietro</v-btn>
     </div>

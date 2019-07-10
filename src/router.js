@@ -37,6 +37,16 @@ export default new Router({
       path: "/details/:id",
       name: "details",
       component: () => import("./views/Details.vue")
+    },
+    {
+      path: "/adidas",
+      name: "adidas",
+      component: () => import("./views/Adidas.vue")
+    },
+    {
+      path: "/nike",
+      name: "nike",
+      component: () => import("./views/Nike.vue")
     }
   ]
 });

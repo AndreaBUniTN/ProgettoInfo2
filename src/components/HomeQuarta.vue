@@ -5,7 +5,8 @@
             v-for="(item,i) in items"
             :key="i"
             :src="item.src"
-            :to ="item.link"
+            @click ="$router.push(item.link)"
+            style="cursor:pointer"
           ></v-carousel-item >
         </v-carousel>
     </v-container>   
@@ -20,13 +21,14 @@ export default {
         items: [
           {
             src: 'https://s3.gsxtr.com/i/bf/14504-adidas-originals-spring-summer-2019-extrawide-ita.jpg',
-            link: '/Uomo'
+            link: '/Adidas'
           },
           {
             src: 'https://s3.gsxtr.com/i/bf/14468-huf-x-bode-collection-extrawide-ita.jpg?v=1'
           },
           {
-            src: 'https://s3.gsxtr.com/i/bf/14452-nike-summer-2019-extrawide-ita.jpg?v=1'
+            src: 'https://s3.gsxtr.com/i/bf/14452-nike-summer-2019-extrawide-ita.jpg?v=1',
+            link: '/Nike'
           },
           {
             src: 'https://s3.gsxtr.com/i/bf/14515-vans-old-skool-regrind-extrawide-ita.jpg'

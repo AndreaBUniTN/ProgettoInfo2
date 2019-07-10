@@ -1,15 +1,15 @@
 <template>
   <v-container fluid fill-height class="HomePrincipale" style="max-height: 100vh;">
     <v-layout justify-center align-center column pa-5>
-      <div class="display-3 font-weight-black white--text text-xs-center">
+      <div class="display-3 font-weight-black white--text text-xs-center" style="cursor:pointer" @click="$router.push('adidas')">
         ADIDAS SS19
       </div>
-      <div class="display-3 font-weight-black white--text text-xs-center mb-3">
+      <div class="display-3 font-weight-black white--text text-xs-center mb-3" style="cursor:pointer" @click="$router.push('adidas')">
         NUOVA COLLEZIONE ESTIVA
       </div>
-      <div class="display-1 font-weight-bold white--text text-xs-center">
-        È finalmente arrivata la nuova collezione estiva di casa Adidas, scopri
-        tutti i nuovi capi e accessori.
+      <div class="display-1 font-weight-bold white--text text-xs-center" style="cursor:pointer" @click="$router.push('adidas')">
+        È finalmente arrivata la nuova collezione estiva di vestiario casa Adidas, scopri
+        tutti i nuovi capi.
       </div>
       <v-btn fab class="grey darken-4" @click="scrollTo()">
         <img style="width:64px; height:64px" src="https://www.materialui.co/materialIcons/hardware/keyboard_arrow_down_grey_192x192.png">

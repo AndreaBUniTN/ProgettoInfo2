@@ -21,7 +21,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Tommy Hilfiger</h3>
-                            <div>TOMMY HILFIGER is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of the classic American classic and very cool style.</div>
+                            <div>TOMMY HILFIGER is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of the American style.</div>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -43,7 +43,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Nike</h3>
-                            <div>Our mission is what drives us to do everything possible to expand human potential. We do that by creating groundbreaking sport innovations, by making our products more sustainably.</div>
+                            <div>Our mission is what drives us to do everything possible to expand human potential. We do that by creating sport innovations, by making our products more sustainably.</div>
                         </div>
                     </v-card-title>
                 </v-card>
@@ -87,7 +87,7 @@
                     <v-card-title primary-title>
                         <div>
                             <h3 class="headline mb-0">Calvin Klein</h3>
-                            <div>Calvin Klein, Inc. è uno dei più importanti studi di design e marketing di moda nel mondo. Crea e immette sul mercato collezioni di abbigliamento di design per uomo e donna.</div>
+                            <div>Calvin Klein Inc. is an American luxury fashion house established in 1968. It specializes in leather, home furnishings, perfumery, jewellery, watches and ready-to-wear.</div>
                         </div>
                     </v-card-title>
                 </v-card>
