@@ -1,13 +1,13 @@
 <template>
   <v-container fluid fill-height class="HomePrincipale" style="max-height: 100vh;">
     <v-layout justify-center align-center column pa-5>
-      <div class="display-3 font-weight-black white--text text-xs-center" style="cursor:pointer" @click="$router.push('adidas')">
+      <div class="display-3 font-weight-black white--text text-xs-center" style="cursor:pointer" @click="$router.push('Adidas')">
         ADIDAS SS19
       </div>
-      <div class="display-3 font-weight-black white--text text-xs-center mb-3" style="cursor:pointer" @click="$router.push('adidas')">
+      <div class="display-3 font-weight-black white--text text-xs-center mb-3" style="cursor:pointer" @click="$router.push('Adidas')">
         NUOVA COLLEZIONE ESTIVA
       </div>
-      <div class="display-1 font-weight-bold white--text text-xs-center" style="cursor:pointer" @click="$router.push('adidas')">
+      <div class="display-1 font-weight-bold white--text text-xs-center" style="cursor:pointer" @click="$router.push('Adidas')">
         È finalmente arrivata la nuova collezione estiva di vestiario casa Adidas, scopri
         tutti i nuovi capi.
       </div>

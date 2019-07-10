@@ -3,7 +3,7 @@
     <div style="height:64px"></div>
     <v-container grid-list-lg>
       <v-layout row wrap>
-        <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id">
+        <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id" data-aos="fade-up">
           <v-hover>
             <v-card
               slot-scope="{ hover }"
@@ -17,7 +17,7 @@
                   <v-layout fill-height>
                     <v-flex xs12 align-end flexbox>
                       <v-avatar>
-                        <img :src="getBrandIcon()">
+                        <img :src="getSingleBrandIcon()">
                       </v-avatar>
                     </v-flex>
                   </v-layout>
@@ -89,7 +89,7 @@ export default {
             this.allClothes.push(doc.data());
 					})});
     },
-    getBrandIcon() {
+    getSingleBrandIcon() {
       let src;
       switch (this.brand) {
         case "Adidas":

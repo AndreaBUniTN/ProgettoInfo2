@@ -4,6 +4,10 @@ import "./plugins/vuetify";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 Vue.config.productionTip = false;
 

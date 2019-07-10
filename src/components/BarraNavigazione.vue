@@ -10,9 +10,9 @@
     >
       <v-list>
         <template v-for="(item, index) in items">
-          <v-list-tile :key="index">
+          <v-list-tile :key="index" :to="item.to">
             <v-list-tile-content>
-              <a :href='item.to'>{{ item.title }}</a>
+              {{ item.title }}
             </v-list-tile-content>
           </v-list-tile>
           <v-divider :key="`divider-${index}`"></v-divider>
@@ -28,13 +28,9 @@
       <router-link class="titolo" to="/">
       <v-toolbar-title class="titolo" to="/">{{ appTitle }}</v-toolbar-title>
       </router-link>
-      <v-btn flat class="hidden-sm-and-down" to="/">Home</v-btn>
-     
-      <v-btn flat class="hidden-sm-and-down" to="/uomo">Uomo</v-btn>
-      <v-btn flat class="hidden-sm-and-down" to="/donna">Donna</v-btn>
-      <v-btn flat class="hidden-sm-and-down" to="/accessori">Accessori</v-btn>
+      <v-btn flat class="hidden-sm-and-down" v-show="item.title!=='About' ? true : false" v-for="(item, index) in items" :key="index" :to="item.to">{{ item.title }}</v-btn>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
-      <v-btn flat class="hidden-sm-and-down" to="/about">ABOUT</v-btn>
+      <v-btn flat class="hidden-sm-and-down" to="/About">ABOUT</v-btn>
     </v-toolbar>
   </span>
 </template>
@@ -47,7 +43,6 @@ export default {
       appTitle: "Bokiaz Clothing",
       drawer: false, // Falso perchè è chiuso, quando si apre diventa vero
       items: [
-        { title: "Home", to: "/" },
         { title: "Uomo", to: "/Uomo" },
         { title: "Donna", to: "/Donna" },
         { title: "Accessori", to: "/Accessori"  },

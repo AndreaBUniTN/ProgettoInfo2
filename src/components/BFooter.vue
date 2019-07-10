@@ -22,13 +22,6 @@ export default {
   data() {
     return {
       appTitle: "Bokiaz clothing",
-      icons: [
-        'fab fa-facebook',
-        'fab fa-twitter',
-        'fab fa-google-plus',
-        'fab fa-linkedin',
-        'fab fa-instagram'
-      ]
     };
   }
 };

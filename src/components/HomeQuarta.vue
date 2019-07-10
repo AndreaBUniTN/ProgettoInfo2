@@ -1,6 +1,6 @@
 <template>
     <v-container>
-      <v-carousel hide-controls hide-delimiters>
+      <v-carousel hide-delimiters>
           <v-carousel-item
             v-for="(item,i) in items"
             :key="i"
@@ -24,14 +24,13 @@ export default {
             link: '/Adidas'
           },
           {
-            src: 'https://s3.gsxtr.com/i/bf/14468-huf-x-bode-collection-extrawide-ita.jpg?v=1'
+            src: 'https://s3.gsxtr.com/i/bf/13553-levi-s-landscape-ita.jpg'
           },
           {
-            src: 'https://s3.gsxtr.com/i/bf/14452-nike-summer-2019-extrawide-ita.jpg?v=1',
-            link: '/Nike'
+            src: 'https://s3.gsxtr.com/i/bf/14452-nike-summer-2019-extrawide-ita.jpg?v=1'
           },
           {
-            src: 'https://s3.gsxtr.com/i/bf/14515-vans-old-skool-regrind-extrawide-ita.jpg'
+            src: 'https://s3.gsxtr.com/i/bf/14627-fila-logo-t-shirt-extrawide-ita.jpg'
           }
         ]
       }
