@@ -22,3 +22,10 @@ export default {
   }
 };
 </script>
+
+<style>
+@font-face {
+  font-family: Black_Street;
+  src: url(assets/Black_Street.ttf);
+}
+</style>

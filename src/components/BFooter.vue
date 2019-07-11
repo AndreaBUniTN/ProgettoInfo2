@@ -28,11 +28,6 @@ export default {
 </script>
 
 <style scoped>
-@font-face {
-  font-family: Black_Street;
-  src: url(Black_Street.ttf);
-}
-
 .text {
   font-family: Black_Street;
   font-size: 35px;

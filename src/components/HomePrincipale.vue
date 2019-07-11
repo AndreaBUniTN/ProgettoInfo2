@@ -39,9 +39,4 @@ export default {
   width: 100%;
   height: 100%;
 }
-
-@font-face {
-  font-family: Black_Street;
-  src: url(Black_Street.ttf);
-}
 </style>

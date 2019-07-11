@@ -93,7 +93,7 @@ export default {
     if(own!==null)
     {
       this.rated = true;
-      this.sentence = "Hai già valutato questo prodotto con un voto pari a " + own + " stelle.";
+      this.sentence = "Hai già valutato questo prodotto con un voto pari a " + own + (own==1 ? " stella." : " stelle.");
     }
   },
   methods: {
@@ -157,12 +157,8 @@ export default {
         return; //
       }
 
-      //let typ = this.clothData.exists ? "clothes" : "misc"; // WIP
-
-      let typ = "clothes";
-
       let db = firebase.firestore();
-      let dDoc = db.collection(typ).doc(this.id);
+      let dDoc = db.collection(this.itemType).doc(this.id);
       let tmpArray = [];
       dDoc
         .get()
