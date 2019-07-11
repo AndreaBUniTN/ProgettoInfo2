@@ -1,7 +1,7 @@
 <template>
   <span>
-    <div style="height:64px"></div>
     <v-container grid-list-lg>
+      <v-flex class="text-xs-center my-5" id="titolo">Uomo</v-flex>
       <v-layout row wrap>
         <v-flex xs12 sm12 md6 lg4 xl3 v-for="cloth in allClothes" :key="cloth.id" data-aos="fade-up">
           <v-hover>
@@ -86,50 +86,6 @@ export default {
           snapshot.forEach(doc => {
             this.allClothes.push(doc.data());
           })});
-      /*dDoc // Old
-        .get()
-        .then(function(doc) {
-          if (doc.exists)
-          {
-            dataObj.brand = doc.data()["brand"];
-            dataObj.category = doc.data()["category"];
-            dataObj.desc = doc.data()["desc"];
-            dataObj.gender = doc.data()["gender"];
-            dataObj.imglink = doc.data()["imglink"];
-            dataObj.link = doc.data()["link"];
-            dataObj.name = doc.data()["name"];
-            dataObj.price = doc.data()["price"];
-
-            let nrevs = doc.data()["stars"].length;
-            for (i = 0; i < nrevs; i++) {
-              sum = sum + doc.data()["stars"][i];
-            }
-
-            out = sum / nrevs;
-            // Rounding up to 1 decimal digit.
-            out = Math.round(out * 10) / 10;
-            //out = Math.round(out); // No decimals.
-            dataObj.stars = out;
-            dataObj.nrevs = nrevs;
-            //Caronte.push(dataObj);
-            alert(JSON.stringify(dataObj));
-
-            //Test
-            //localStorage.setItem("Caronte", JSON.stringify(dataObj));
-
-            //console.log(JSON.stringify(dataObj));
-            //alert("obj: " + JSON.stringify(dataObj));
-            //this.allClothes.push(dataObj);
-            //return dataObj;*/
-         /* } else {
-            alert("what?");
-            // doc.data() will be undefined in this case
-            //console.log("No such document!");
-          }
-        })*/
-        /*.catch(function(error) {
-          console.log("Error getting document:", error);
-        });*/
     },
     getBrandIcon(brand) {
       let src;
@@ -181,7 +137,7 @@ export default {
           break;
           
         default: // Bokiaz
-          src = "/public/favicon.ico";
+          src = "";
           break;
       }
       return src;

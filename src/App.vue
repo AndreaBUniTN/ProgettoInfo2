@@ -28,4 +28,10 @@ export default {
   font-family: Black_Street;
   src: url(assets/Black_Street.ttf);
 }
+
+#titolo {
+  font-family: Black_Street;
+  font-size: 10vmin;
+  text-decoration: none;
+}
 </style>

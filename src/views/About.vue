@@ -69,12 +69,6 @@ export default {
 </script>
 
 <style scoped>
-#titolo {
-  font-family: Black_Street;
-  font-size: 10vmin;
-  text-decoration: none;
-}
-
 #smalltitle {
     font-size: 2.4vmin;
 }

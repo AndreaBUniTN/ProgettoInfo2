@@ -58,7 +58,7 @@ export default {
     };
   },
   watch: {
-    // Whenever rating changes, this function will run
+    // Whenever rating changes, this function will run - This was made to avoid Vuetify locking the click event.
     rating: function () {
       if(!this.start) {
         this.rated = true;
@@ -87,7 +87,7 @@ export default {
     this.id = this.$route.params.id;
     this.itemType = localStorage.getItem("itemtype");
 
-    this.clothData = this.getItemData(this.itemType);
+    this.clothData = this.getItemData();
     let own = localStorage.getItem(this.id + this.itemType + "Rated");
 
     if(own!==null)
@@ -97,9 +97,9 @@ export default {
     }
   },
   methods: {
-    getItemData(type) {
+    getItemData() {
       let db = firebase.firestore();
-      let item = db.collection(type).doc(this.id);
+      let item = db.collection(this.itemType).doc(this.id);
 
       item
         .get()
@@ -122,34 +122,6 @@ export default {
         sum = sum + this.clothData.stars[i];
       }
       this.rating = (sum/this.clothData.stars.length);
-    },
-    getBrandIcon(brand) {
-      let src;
-      switch (brand) {
-        case "Adidas":
-          src = 'https://logos-download.com/wp-content/uploads/2016/03/Adidas_Originals_logo.png';
-          break;
-        case "Nike":
-          src = 'http://www.myiconfinder.com/uploads/iconsets/256-256-15f5c0bd367d23e4ed1a1fc800bc2ed6-nike.png';
-          break;
-        case "Calvin Klein":
-          src = 'https://brandslogo.net/wp-content/uploads/2013/01/calvin-klein-.eps-logo-vector.png';
-          break;
-        case "Tommy Hilfiger":
-          src = "";
-          break;
-        case "Levis":
-          src = "";
-          break;
-        case "Bokiaz":
-          src = "";
-          break;
-
-        default:
-          src = "";
-          break;
-      }
-      return src;
     },
     addRating() {      
       if (this.rating > 5 || this.rating < 0) {

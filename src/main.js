@@ -17,12 +17,3 @@ let vm = new Vue({
   render: h => h(App)
 }).$mount("#app");
 global.vm = vm;
-
-/*Vue.mixin({
-  created: function () {
-    var myOption = this.$options.myOption
-    if (myOption) {
-      console.log(myOption)
-    }
-  }
-})*/
